@@ -1,0 +1,4 @@
+.invisframe {display: none !important;}
+select[name=filter_status] {width: 48px;}
+table.list img {margin-bottom:-4px;}
+table.list img[id^=img] {margin-bottom:0px;}
