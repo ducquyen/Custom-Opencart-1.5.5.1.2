@@ -33,3 +33,10 @@
 2014-06-03 22:29:14 - PHP Notice:  Error: Could not load language common/login! in E:\MyProg\_www\OpenServer\domains\shop.mtc-elektro.com.ua\vqmod\vqcache\vq2-system_library_language.php on line 39
 2014-06-03 22:29:14 - PHP Notice:  Error: Could not load language common/header! in E:\MyProg\_www\OpenServer\domains\shop.mtc-elektro.com.ua\vqmod\vqcache\vq2-system_library_language.php on line 39
 2014-06-03 22:29:14 - PHP Notice:  Error: Could not load template E:\MyProg\_www\OpenServer\domains\shop.mtc-elektro.com.ua/admin/view/template/common/header.tpl! in E:\MyProg\_www\OpenServer\domains\shop.mtc-elektro.com.ua\vqmod\vqcache\vq2-system_engine_controller.php on line 70
+2014-06-05 16:12:15 - PHP Notice:  Undefined variable: product_id in E:\MyProg\_www\OpenServer\domains\oc_ocStore-1.5.5.1.2\admin4ik\view\template\catalog\product_form.tpl on line 760
+2014-06-05 16:18:13 - PHP Notice:  Undefined variable: product_id in E:\MyProg\_www\OpenServer\domains\oc_ocStore-1.5.5.1.2\admin4ik\view\template\catalog\product_form.tpl on line 178
+2014-06-05 16:19:12 - PHP Notice:  Undefined variable: entry_product_id in E:\MyProg\_www\OpenServer\domains\oc_ocStore-1.5.5.1.2\admin4ik\view\template\catalog\product_form.tpl on line 178
+2014-06-05 16:34:49 - PHP Notice:  Undefined variable: entry_product_id in E:\MyProg\_www\OpenServer\domains\oc_ocStore-1.5.5.1.2\admin4ik\view\template\catalog\product_form.tpl on line 178
+2014-06-05 16:35:13 - PHP Notice:  Undefined variable: entry_product_id in E:\MyProg\_www\OpenServer\domains\oc_ocStore-1.5.5.1.2\admin4ik\view\template\catalog\product_form.tpl on line 178
+2014-06-05 16:38:35 - PHP Notice:  Undefined variable: entry_product_id in E:\MyProg\_www\OpenServer\domains\oc_ocStore-1.5.5.1.2\admin4ik\view\template\catalog\product_form.tpl on line 178
+2014-06-05 18:44:39 - PHP Notice:  Use of undefined constant model - assumed 'model' in E:\MyProg\_www\OpenServer\domains\oc_ocStore-1.5.5.1.2\admin4ik\view\template\catalog\product_form.tpl on line 179
