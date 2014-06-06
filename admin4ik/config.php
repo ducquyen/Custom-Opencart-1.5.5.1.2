@@ -1,14 +1,14 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost.shop.mtc-elektro.com.ua/admin4ik/');
-define('HTTP_CATALOG', 'http://localhost.shop.mtc-elektro.com.ua/');
+define('HTTP_SERVER', 'http://localhost-ocstore.shop.com/admin4ik/');
+define('HTTP_CATALOG', 'http://localhost-ocstore.shop.com/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost.shop.mtc-elektro.com.ua/admin4ik/');
-define('HTTPS_CATALOG', 'http://localhost.shop.mtc-elektro.com.ua/');
+define('HTTPS_SERVER', 'http://localhost-ocstore.shop.com/admin4ik/');
+define('HTTPS_CATALOG', 'http://localhost-ocstore.shop.com/');
 
 // DIR
-define('DIR_ROOT','E:\MyProg\_www\OpenServer\domains\shop.mtc-elektro.com.ua');
+define('DIR_ROOT','E:\MyProg\_www\OpenServer\domains\oc_ocStore-1.5.5.1.2');
 define('DIR_APPLICATION', DIR_ROOT.'/admin4ik/');
 define('DIR_SYSTEM', DIR_ROOT.'/system/');
 define('DIR_DATABASE', DIR_ROOT.'/system/database/');
@@ -26,6 +26,6 @@ define('DB_DRIVER', 'mysql');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_DATABASE', 'oc_mtc-elektro');
+define('DB_DATABASE', 'oc_ocstore');
 define('DB_PREFIX', 'oc_');
 ?>

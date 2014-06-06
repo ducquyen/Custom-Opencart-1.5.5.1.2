@@ -170,13 +170,19 @@
               <td><?php echo $entry_keyword; ?></td>
               <td><input type="text" name="keyword" value="<?php echo $keyword; ?>" /></td>
             </tr>
-            <tr>
-              <td><?php echo $entry_image; ?></td>
-              <td><div class="image"><img src="<?php echo $thumb; ?>" alt="" id="thumb" /><br />
-                  <input type="hidden" name="image" value="<?php echo $image; ?>" id="image" />
-                  <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', 'no_image.jpg');"><?php echo $text_clear; ?></a></div></td>
-            </tr>
-            <tr>
+	          <tr>
+		          <td><?php echo $entry_image; ?></td>
+		          <td>
+			          <div class="image" style="width: 100px;">
+				          <div <?php echo isset($this->request->get['product_id'])?"id=\"simple-image-upload\"":"";?>><img src="<?php echo $thumb; ?>" alt="" id="thumb"/></div>
+				          <input type="hidden" name="image" value="<?php echo $image; ?>" id="image"/>
+				          <input type="hidden" id="product_id" value="<?php echo isset($this->request->get['product_id'])?$this->request->get['product_id']:"";?>">
+				          <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
+					          onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', 'no_image.jpg');"><?php echo $text_clear; ?></a>
+			          </div>
+		          </td>
+	          </tr>
+	          <tr>
               <td><?php echo $entry_date_available; ?></td>
               <td><input type="text" name="date_available" value="<?php echo $date_available; ?>" size="12" class="date" /></td>
             </tr>
@@ -747,7 +753,10 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="view/javascript/ckeditor/ckeditor.js"></script> 
+<script type="text/javascript" src="view/javascript/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="view/javascript/jquery/ajaxupload.js"></script>
+<script type="text/javascript">var token = '<?php echo $token; ?>';</script>
+<script type="text/javascript" src="view/javascript/simpleimgupload.js"></script>
 <script type="text/javascript"><!--
 <?php foreach ($languages as $language) { ?>
 CKEDITOR.replace('description<?php echo $language['language_id']; ?>', {
