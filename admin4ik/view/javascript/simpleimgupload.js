@@ -1,7 +1,7 @@
 function addEventSimpleImageUpload(imageUploadId,imageUploadNum){
 
     new AjaxUpload(imageUploadId, {
-        action: 'index.php?route=tool/simpleimgupload/upload&token='+token,
+        action: 'index.php?route=common/filemanager/upload&token='+$("#token_id").val(),
         name: 'image',
         autoSubmit: true,
         responseType: 'json',
@@ -19,12 +19,10 @@ function addEventSimpleImageUpload(imageUploadId,imageUploadNum){
         onComplete: function(file, json) {
             if (json.success) {
                 $.ajax({
-                    url: 'index.php?route=common/filemanager/image&token='+token+'&image=' + encodeURIComponent($('#image'+imageUploadNum).attr('value')),
+                    url: 'index.php?route=common/filemanager/image&token='+$("#token_id").val()+'&image=' + encodeURIComponent($('#image'+imageUploadNum).attr('value')),
                     dataType: 'text',
                     success: function(text) {
-                        console.log(text);
                         $("#thumb"+imageUploadNum).attr("src",text);
-                        //$('#thumb').replaceWith('<img src="' + text + '" alt="" id="thumb" />');
                     }
                 });
             }
@@ -36,9 +34,10 @@ function addEventSimpleImageUpload(imageUploadId,imageUploadNum){
 }
 
 $(document).ready(function() {
-    if ($('#simple-image-upload').length){
+    if ($('#product_id').val()){
+        $("#image").parent(".image").css("width","241px").children("img").wrap('<div id="simple-image-upload"></div>');
         new AjaxUpload('simple-image-upload', {
-            action: 'index.php?route=tool/simpleimgupload/upload&token='+token,
+            action: 'index.php?route=common/filemanager/upload&token='+$("#token_id").val(),
             name: 'image',
             autoSubmit: true,
             responseType: 'json',
@@ -56,7 +55,7 @@ $(document).ready(function() {
             onComplete: function(file, json) {
                 if (json.success) {
                     $.ajax({
-                        url: 'index.php?route=common/filemanager/image&token='+token+'&image=' + encodeURIComponent($('#image').attr('value')),
+                        url: 'index.php?route=common/filemanager/image&token='+$("#token_id").val()+'&image=' + encodeURIComponent($('#image').attr('value')),
                         dataType: 'text',
                         success: function(text) {
                             $('#thumb').replaceWith('<img src="' + text + '" alt="" id="thumb" />');
@@ -71,9 +70,17 @@ $(document).ready(function() {
         });
 
     };
-
-    $(".simple-image-upload").each(function(){
-        addEventSimpleImageUpload($(this).attr("id"),$(this).data("image"));
-    });
-
+    if ($('#product_id').val()){
+        var imageNum = 0;
+        $("table#images").children("tbody").each(function(){
+            $(this).find(".image>img").wrap('<div id="simple-image-upload-'+imageNum+'"></div>');
+            addEventSimpleImageUpload('simple-image-upload-'+imageNum,imageNum);
+            imageNum++;
+        });
+        $("table#images>tfoot a.button").on("click",function(){
+            var imageNum = image_row - 1;
+            $("table#images").children("tbody:last").find(".image>img").wrap('<div id="simple-image-upload-'+imageNum+'"></div>');
+            addEventSimpleImageUpload("simple-image-upload-"+imageNum,imageNum);
+        });
+    };
 });

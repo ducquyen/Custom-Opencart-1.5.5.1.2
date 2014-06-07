@@ -427,7 +427,7 @@ class ControllerCommonFileManager extends Controller {
 		if (isset($this->request->post['directory'])) {
 			if (isset($this->request->files['image']) && $this->request->files['image']['tmp_name']) {
 				$filename = basename(html_entity_decode($this->request->files['image']['name'], ENT_QUOTES, 'UTF-8'));
-				
+				if (isset($this->request->post['newFileName'])){$filename = basename(html_entity_decode($this->request->post['newFileName'], ENT_QUOTES, 'UTF-8'));}
 				if ((strlen($filename) < 3) || (strlen($filename) > 255)) {
 					$json['error'] = $this->language->get('error_filename');
 				}

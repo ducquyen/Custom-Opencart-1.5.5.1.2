@@ -172,7 +172,7 @@
             </tr>
             <tr>
               <td><?php echo $entry_image; ?></td>
-	            <td><div class="image" style="width: 241px;"><div <?php echo isset($this->request->get['product_id'])?"id=\"simple-image-upload\"":"";?>><img src="<?php echo $thumb; ?>" alt="" id="thumb"/></div><input type="hidden" id="product_id" value="<?php echo isset($this->request->get['product_id'])?$this->request->get['product_id']:"";?>">
+	            <td><div class="image"><img src="<?php echo $thumb; ?>" alt="" id="thumb"/>
                   <input type="hidden" name="image" value="<?php echo $image; ?>" id="image" />
                   <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', 'no_image.jpg');"><?php echo $text_clear; ?></a></div></td>
             </tr>
@@ -659,7 +659,7 @@
             <?php foreach ($product_images as $product_image) { ?>
             <tbody id="image-row<?php echo $image_row; ?>">
               <tr>
-                <td class="left"><div class="image"><div class="simple-image-upload" id="simple-image-upload-<?php echo $image_row;?>" data-image="<?php echo $image_row;?>"><img src="<?php echo $product_image['thumb']; ?>" alt="" id="thumb<?php echo $image_row; ?>" /></div>
+                <td class="left"><div class="image"><img src="<?php echo $product_image['thumb']; ?>" alt="" id="thumb<?php echo $image_row; ?>" />
                     <input type="hidden" name="product_image[<?php echo $image_row; ?>][image]" value="<?php echo $product_image['image']; ?>" id="image<?php echo $image_row; ?>" />
                     <br />
                     <a onclick="image_upload('image<?php echo $image_row; ?>', 'thumb<?php echo $image_row; ?>');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb<?php echo $image_row; ?>').attr('src', '<?php echo $no_image; ?>'); $('#image<?php echo $image_row; ?>').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
@@ -749,7 +749,8 @@
 </div>
 <script type="text/javascript" src="view/javascript/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="view/javascript/jquery/ajaxupload.js"></script>
-<script type="text/javascript">var token = '<?php echo $token; ?>';</script>
+<input type="hidden" id="token_id" value="<?php echo $token;?>">
+<input type="hidden" id="product_id" value="<?php echo isset($this->request->get['product_id'])?$this->request->get['product_id']:"";?>">
 <script type="text/javascript" src="view/javascript/simpleimgupload.js"></script>
 <script type="text/javascript"><!--
 <?php foreach ($languages as $language) { ?>
@@ -1221,14 +1222,12 @@ var image_row = <?php echo $image_row; ?>;
 function addImage() {
     html  = '<tbody id="image-row' + image_row + '">';
 	html += '  <tr>';
-	html += '    <td class="left"><div class="image"><div class="simple-image-upload" id="simple-image-upload-'+ image_row +'" data-image="'+ image_row +'"><img src="<?php echo $no_image; ?>" alt="" id="thumb' + image_row + '" /><input type="hidden" name="product_image[' + image_row + '][image]" value="" id="image' + image_row + '" /><br /><a onclick="image_upload(\'image' + image_row + '\', \'thumb' + image_row + '\');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$(\'#thumb' + image_row + '\').attr(\'src\', \'<?php echo $no_image; ?>\'); $(\'#image' + image_row + '\').attr(\'value\', \'\');"><?php echo $text_clear; ?></a></div></td>';
+	html += '    <td class="left"><div class="image"><img src="<?php echo $no_image; ?>" alt="" id="thumb' + image_row + '" /><input type="hidden" name="product_image[' + image_row + '][image]" value="" id="image' + image_row + '" /><br /><a onclick="image_upload(\'image' + image_row + '\', \'thumb' + image_row + '\');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$(\'#thumb' + image_row + '\').attr(\'src\', \'<?php echo $no_image; ?>\'); $(\'#image' + image_row + '\').attr(\'value\', \'\');"><?php echo $text_clear; ?></a></td>';
 	html += '    <td class="right"><input type="text" name="product_image[' + image_row + '][sort_order]" value="" size="2" /></td>';
 	html += '    <td class="left"><a onclick="$(\'#image-row' + image_row  + '\').remove();" class="button"><?php echo $button_remove; ?></a></td>';
 	html += '  </tr>';
 	html += '</tbody>';
-	
 	$('#images tfoot').before(html);
-	addEventSimpleImageUpload("simple-image-upload-"+image_row,image_row);
 	image_row++;
 }
 //--></script> 
