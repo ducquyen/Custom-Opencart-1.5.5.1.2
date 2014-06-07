@@ -73,9 +73,7 @@ $(document).ready(function() {
     };
 
     $(".simple-image-upload").each(function(){
-        var imageUploadNum =  $(this).data("image");
-        $(this).attr("id","simple-image-upload-"+imageUploadNum);
-        addEventSimpleImageUpload($(this).attr("id"),imageUploadNum);
+        addEventSimpleImageUpload($(this).attr("id"),$(this).data("image"));
     });
 
 });
