@@ -170,19 +170,13 @@
               <td><?php echo $entry_keyword; ?></td>
               <td><input type="text" name="keyword" value="<?php echo $keyword; ?>" /></td>
             </tr>
-	          <tr>
-		          <td><?php echo $entry_image; ?></td>
-		          <td>
-			          <div class="image" style="width: 100px;">
-				          <div <?php echo isset($this->request->get['product_id'])?"id=\"simple-image-upload\"":"";?>><img src="<?php echo $thumb; ?>" alt="" id="thumb"/></div>
-				          <input type="hidden" name="image" value="<?php echo $image; ?>" id="image"/>
-				          <input type="hidden" id="product_id" value="<?php echo isset($this->request->get['product_id'])?$this->request->get['product_id']:"";?>">
-				          <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
-					          onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', 'no_image.jpg');"><?php echo $text_clear; ?></a>
-			          </div>
-		          </td>
-	          </tr>
-	          <tr>
+            <tr>
+              <td><?php echo $entry_image; ?></td>
+	            <td><div class="image" style="width: 241px;"><div <?php echo isset($this->request->get['product_id'])?"id=\"simple-image-upload\"":"";?>><img src="<?php echo $thumb; ?>" alt="" id="thumb"/></div><input type="hidden" id="product_id" value="<?php echo isset($this->request->get['product_id'])?$this->request->get['product_id']:"";?>">
+                  <input type="hidden" name="image" value="<?php echo $image; ?>" id="image" />
+                  <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', 'no_image.jpg');"><?php echo $text_clear; ?></a></div></td>
+            </tr>
+            <tr>
               <td><?php echo $entry_date_available; ?></td>
               <td><input type="text" name="date_available" value="<?php echo $date_available; ?>" size="12" class="date" /></td>
             </tr>
